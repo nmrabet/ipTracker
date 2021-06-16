@@ -28,14 +28,14 @@ function App() {
         className="static z-20 h-1/3 md:h-2/3 object-cover md:w-full"
       />
       <div className="mx-auto z-50 absolute top-12 left-0 right-0 w-8/12">
-        <h2 className="text-center text-lg font-medium mb-3 text-white">
+        <h2 className="text-center text-2xl font-medium mb-5 text-white">
           IP Address Tracker
         </h2>
-        <div className="text-center flex justify-center items-center">
+        <div className="text-center flex justify-center items-center ">
           <input
             type="search"
             placeholder="Search for any IP address or domain"
-            className="pl-2 w-8/12 border rounded-tl-xl rounded-bl-xl h-10 outline-none"
+            className="pl-2 w-8/12 mb-4 border rounded-tl-xl rounded-bl-xl h-10 outline-none"
           />
           <button
             type="submit"
@@ -46,25 +46,29 @@ function App() {
         </div>
 
         {position && (
-          <div className="mx-auto space-y-4 text-center rounded-xl w-11/12 bg-white border m-6 lg:flex flex-row justify-between lg:space-y-0 lg:w-10/12 p-6">
+          <div className="mx-auto space-y-4 text-left rounded-xl w-11/12 bg-white border m-6 lg:flex flex-row justify-between lg:space-y-0 lg:w-11/12 p-14">
             <div className="" key={position.location.geonameId}>
-              <h3 className="font-bold text-xs">IP ADDRESS</h3>
-              <h2>{position.ip}</h2>
+              <h3 className="font-medium text-xs tracking-wide">IP ADDRESS</h3>
+              <h2 className="mt-3 text-xl font-medium">{position.ip}</h2>
             </div>
             <div className="hidden lg:block lg:border"></div>
             <div>
-              <h3 className="font-bold text-xs">LOCATION</h3>
-              <h2>{position.location.city}</h2>
+              <h3 className="font-medium text-xs tracking-wide">LOCATION</h3>
+              <h2 className="mt-3 text-xl font-medium">
+                {position.location.city}
+              </h2>
             </div>
             <div className="hidden lg:block lg:border"></div>
             <div>
-              <h3 className="font-bold text-xs">TIMEZONE</h3>
-              <h2>{position.location.timezone}</h2>
+              <h3 className="font-medium text-xs tracking-wide">TIMEZONE</h3>
+              <h2 className="mt-3 text-xl font-medium">
+                {position.location.timezone}
+              </h2>
             </div>
             <div className="hidden lg:block lg:border"></div>
             <div>
-              <h3 className="font-bold text-xs">ISP</h3>
-              <h2>{position.isp}</h2>
+              <h3 className="font-medium text-xs tracking-wide">ISP</h3>
+              <h2 className="mt-3 text-xl font-medium">{position.isp}</h2>
             </div>
           </div>
         )}
