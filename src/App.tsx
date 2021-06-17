@@ -39,35 +39,55 @@ function App() {
           />
           <button
             type="submit"
-            className="h-10 w-10 bg-black rounded-tr-xl rounded-br-xl focus:outline-none"
+            className="h-10 w-10 mb-4 bg-black rounded-tr-xl rounded-br-xl focus:outline-none"
           >
             <Arrow className="mx-auto outline-none" />
           </button>
         </div>
 
         {position && (
-          <div className="mx-auto space-y-4 text-left rounded-xl w-11/12 bg-white border m-6 lg:flex flex-row justify-between lg:space-y-0 lg:w-11/12 p-14">
+          <div className="mx-auto space-y-4 text-center rounded-xl w-11/12 p-6  bg-white border m-6 md:text-left lg:p-14 lg:flex flex-row justify-between lg:space-x-6 lg:space-y-0 lg:w-11/12 ">
             <div className="" key={position.location.geonameId}>
-              <h3 className="font-medium text-xs tracking-wide">IP ADDRESS</h3>
+              <h3
+                className="font-medium text-xs tracking-wider"
+                style={{ color: "#3F3F3F" }}
+              >
+                IP ADDRESS
+              </h3>
               <h2 className="mt-3 text-xl font-medium">{position.ip}</h2>
             </div>
             <div className="hidden lg:block lg:border"></div>
             <div>
-              <h3 className="font-medium text-xs tracking-wide">LOCATION</h3>
+              <h3
+                className="font-medium text-xs tracking-wider"
+                style={{ color: "#3F3F3F" }}
+              >
+                LOCATION
+              </h3>
               <h2 className="mt-3 text-xl font-medium">
                 {position.location.city}
               </h2>
             </div>
             <div className="hidden lg:block lg:border"></div>
             <div>
-              <h3 className="font-medium text-xs tracking-wide">TIMEZONE</h3>
+              <h3
+                className="font-medium text-xs tracking-wider"
+                style={{ color: "#3F3F3F" }}
+              >
+                TIMEZONE
+              </h3>
               <h2 className="mt-3 text-xl font-medium">
                 {position.location.timezone}
               </h2>
             </div>
             <div className="hidden lg:block lg:border"></div>
             <div>
-              <h3 className="font-medium text-xs tracking-wide">ISP</h3>
+              <h3
+                className="font-medium text-xs tracking-wider"
+                style={{ color: "#3F3F3F" }}
+              >
+                ISP
+              </h3>
               <h2 className="mt-3 text-xl font-medium">{position.isp}</h2>
             </div>
           </div>
