@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Geolocation } from "./types/index";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
+import { LatLngTuple } from "leaflet";
 import pattern from "./assets/pattern-bg.png";
 import { ReactComponent as Arrow } from "./assets/icon-arrow.svg";
+
+const defaultLatLng: LatLngTuple = [48.865572, 2.283523];
+const zoom: number = 8;
 
 function App() {
   const [position, setPosition] = useState<Geolocation>();
@@ -24,8 +28,11 @@ function App() {
     }
   };
 
-  let DEFAULT_LONGITUDE = position?.location.lng;
-  let DEFAULT_LATITUDE = position?.location.lat;
+  let DEFAULT_LONGITUDE = position?.location.lng || 10.1778;
+  let DEFAULT_LATITUDE = position?.location.lat || 36.8049;
+
+  console.log(DEFAULT_LATITUDE);
+  console.log(DEFAULT_LONGITUDE);
 
   return (
     <div>
@@ -109,19 +116,11 @@ function App() {
       </div>
 
       <div className=" relative z-10">
-        <MapContainer
-          center={[DEFAULT_LONGITUDE, DEFAULT_LATITUDE]}
-          zoom={13}
-          scrollWheelZoom={false}
-          style={{ height: "100vh" }}
-        >
+        <MapContainer id="mapId" center={defaultLatLng} zoom={zoom}>
           <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker position={[DEFAULT_LONGITUDE, DEFAULT_LATITUDE]}>
-            <Popup>You are here !</Popup>
-          </Marker>
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          ></TileLayer>
         </MapContainer>
       </div>
     </div>

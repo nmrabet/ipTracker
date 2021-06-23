@@ -4,7 +4,7 @@ export interface Geolocation {
     country: string;
     region: string;
     city: string;
-    lat: number;
+    lat: number ;
     lng: number;
     postalCode: string;
     timezone: string;
